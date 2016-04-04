@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>onSlide</title>
+	<style>
+	*{margin:0;padding: 0;}
+	#container{width: 800px;height: 600px;margin: 10px auto;position: relative;overflow: hidden;border: 4px solid #555;border-radius: 9px;}
+	#photos{position:relative;height: 600px;/*width:8000px;*/list-style-type: none;overflow: hidden;/*transition:all 1s ease-in-out;*/left: 0;}
+	#photos .item{float: left;width: 800px;height: 600px;}
+	.btn{position: absolute;top: 50%;transform:translate(0,-50%);height: 80px;width:40px;z-index: 20;cursor: pointer;background: rgba(0, 0, 0, .5);color: #fff;font-size: 40px;line-height: 80px;font-weight: bold;text-align: center;text-decoration: none;}
+	.btn:hover{background: rgba(0, 0, 0, .8);}
+	#preBtn{left: 0;border-radius: 5px 0 0 5px;}
+	#nextBtn{right: 0;border-radius: 0 5px 5px 0;}
+	/*居中方法，可用transform*/
+	#subs{position: absolute;bottom: 10px;list-style-type: none;left: 50%;transform: translate(-50%, 0);}
+	/*border-radius写50%，写成8px效果很奇怪，？？？*/
+	#subs .sub{width: 16px;height: 16px;background-color: rgba(256,256,256, .5);border-radius: 50%;border: 4px solid rgba(0,0,0, .8);float: left;display: inline-block;margin: 4px;}
+	#subs .sub:hover{transform: scale(1.2);cursor: pointer;background-color: rgba(256,256,256, .8);border-color:rgba(0,0,0, 1); }
+	#subs .sub.cur{background-color: rgba(249,15,15, .9);}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="photos">
+			<li class="item"><img src="./images/1.jpg" alt="" width="100%" height="100%"></li>
+			<li class="item"><img src="./images/2.jpg" alt="" width="100%" height="100%"></li>
+			<li class="item"><img src="./images/3.jpg" alt="" width="100%" height="100%"></li>
+			<li class="item"><img src="./images/4.jpg" alt="" width="100%" height="100%"></li>
+			<li class="item"><img src="./images/5.jpg" alt="" width="100%" height="100%"></li>
+			<li class="item"><img src="./images/6.jpg" alt="" width="100%" height="100%"></li>
+			<li class="item"><img src="./images/7.jpg" alt="" width="100%" height="100%"></li>
+		</ul>
+		<a href="javascript:;"class="btn" id="preBtn">&lt;</a>
+    	<a href="javascript:;" class="btn" id="nextBtn">&gt;</a>
+    	<ul id="subs">
+    	</ul>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/oneSlide.js"></script>
+	<script>
+		$(function(){
+			new oneSlide($("#container"));
+		});
+
+	</script>
+</body>
+</html>
